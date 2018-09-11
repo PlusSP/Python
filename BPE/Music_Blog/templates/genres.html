@@ -1,0 +1,19 @@
+{% extends 'decorator.html' %}
+{% load static %}
+{% block title %}Жанры{% endblock %}
+{% block content %}
+    <h1>Жанры</h1>
+    {% for g in genres %}
+        <a href="{% url 'blog:genre_detail' pk=g.id %}">
+        <p>{{ g.name }}</p>
+        </a>
+    {% endfor %}
+{#        <h1>Альбомы</h1>#}
+{#        {% for a in albums %}#}
+{#                <hr>#}
+{#                <h2>{{ a.artist }} - {{ a.title }}({{ a.year }})</h2>#}
+{#                <p>{{ a.genre }}</p>#}
+{#                <img src="{{ MEDIA_URL }}{{ a.album_art }}" height="400">#}
+{#            <br>#}
+{#        {% endfor %}#}
+{% endblock %}

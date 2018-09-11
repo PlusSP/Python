@@ -1,0 +1,16 @@
+{% extends 'decorator.html' %}
+{% load static %}
+{% block title %}{{ album }}{% endblock %}
+{% block content %}
+    {% if album %}
+        <h3>{{ album.artist }} - {{ album.title }} ({{ album.year }})</h3>
+        <hr>
+        <p><img src="{{ MEDIA_URL }}{{ album.album_art }}" height="400">
+        </p>
+        <p>{{ album.genre }}</p>
+        <hr>
+        <text>{{ tracklist }}</text>
+    {% else %}
+        <h1>Информация отсутствует</h1>
+    {% endif %}
+{% endblock %}

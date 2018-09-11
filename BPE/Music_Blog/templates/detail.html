@@ -1,0 +1,14 @@
+{% extends 'decorator.html' %}
+{% load static %}
+{% block title %}{{ news }}{% endblock %}
+{% block content %}
+    {% if news %}
+        <h3>{{ news }}</h3>
+        <hr>
+        <p><img src="{{ MEDIA_URL }}{{ news.image }}" height="400">
+        </p>
+        <text>{{text }}</text>
+    {% else %}
+        <h1>Нет такой новости</h1>
+    {% endif %}
+{% endblock %}

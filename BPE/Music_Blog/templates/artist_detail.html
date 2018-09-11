@@ -1,0 +1,15 @@
+{% extends 'decorator.html' %}
+{% load static %}
+{% block title %}{{ artist.name }}{% endblock %}
+{% block content %}
+    <h1>{{ artist.name }}</h1>
+    <hr>
+    {% for a in albums %}
+    <h>{{ a.title }}</h>
+    <p>{{ a.genre }}</p>
+    <a href="{% url 'blog:album_detail' pk=a.pk %}">
+    <img src="{{ MEDIA_URL }}{{ a.album_art }}" height="300">
+    </a>
+    <hr>
+    {% endfor %}
+{% endblock %}

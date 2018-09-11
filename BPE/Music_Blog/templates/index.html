@@ -1,0 +1,18 @@
+{% extends 'decorator.html' %}
+{% load static %}
+{% block title %}Новости{% endblock %}
+{% block content %}
+    <h1>Новости</h1>
+    <ul>
+        {% for n in news %}
+                <hr>
+                <h2>{{ n.title }}</h2>
+                <p>{{ n.preview }}</p>
+                <img src="{{ MEDIA_URL }}{{ n.image }}" height="400">
+                <p>{{ n.post_date }}</p>
+                <a href="{% url 'blog:detail' pk=n.pk %}">Подробнее</a>
+            <br>
+        {% endfor %}
+    </ul>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/VAXg78MKJcM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+{% endblock %}

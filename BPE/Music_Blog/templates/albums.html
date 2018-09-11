@@ -1,0 +1,41 @@
+{% extends 'decorator.html' %}
+{% load static %}
+{% block title %}Альбомы{% endblock %}
+{% block content %}
+    <h1>Альбомы</h1>
+    <ul>
+        <section id="container">
+			<div class="wrap-container">
+				<div id="main-content" class="zerogrid">
+					<div class="wrap-content">
+						<div class="row">
+                            {% for a in albums %}
+                               <div class="col-1-3">
+								<div class="wrap-col">
+									<article>
+										<div class="post-thumbnail-wrap">
+                                             <h><script type="text/javascript">
+                                             var title = '{{ a.title }}';
+                                             title = title.slice(0,37);
+                                             if (title.length >36){
+                                                title = title+'...'
+                                             }
+                                             document.writeln(title);
+                                             </script></h>
+                                            <br>{{ a.genre }}
+                                            <br><a href="{% url 'blog:album_detail' pk=a.pk %}" class="portfolio-box">
+                                            <img src="{{ MEDIA_URL }}{{ a.album_art }}" height="300">
+                                            </a>
+                                            <hr>
+										</div>
+									</article>
+								</div>
+							</div>
+                            {% endfor %}
+                        </div>
+					</div>
+				</div>
+			</div>
+		</section>
+    </ul>
+{% endblock %}
